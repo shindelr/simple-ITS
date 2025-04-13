@@ -2,8 +2,7 @@
 DB model for Products table.
 """
 
-from sqlmodel import Field, Session, SQLModel, create_engine, select
-from fastapi import Depends, FastAPI, HTTPException, Query
+from sqlmodel import Field, SQLModel
 from datetime import datetime
 from decimal import Decimal
 
