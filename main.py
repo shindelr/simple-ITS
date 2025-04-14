@@ -5,12 +5,15 @@ A simple inventory tracking system.
 """
 from fastapi import FastAPI
 from src.database.sqlite_db_connect import create_db_and_tables
+from contextlib import asynccontextmanager
 
-app = FastAPI()
 
-@app.on_event("startup")
-def on_startup():
+@asynccontextmanager
+async def lifespan(app: FastAPI):
     create_db_and_tables()
+    yield
+
+app = FastAPI(lifespan=lifespan)
 
 
 @app.get("/")

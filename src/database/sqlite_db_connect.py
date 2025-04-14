@@ -4,8 +4,8 @@ Make a connection to the SQLITE database.
 
 from dotenv import load_dotenv
 import os
-import json
 from sqlmodel import Session, create_engine, SQLModel
+from src.model import models
 
 load_dotenv()
 
